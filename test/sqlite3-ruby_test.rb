@@ -2,7 +2,7 @@ require 'debug'
 require 'minitest/autorun'
 require 'sqlite3'
 
-#sqlite3-testの動作を確認する。
+#sqlite3-rubyの動作を確認する。
 class SQLite3Test < Minitest::Test
     DATABASE_PATH="./test.db" #テスト用のデータベースパス
     TABLE_NAME="sample"
