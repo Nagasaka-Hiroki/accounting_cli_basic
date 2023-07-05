@@ -1,0 +1,25 @@
+version: "3.9"
+services:
+  ruby:
+    container_name: accounting_basic
+    image: ruby-bookworm:3.2.2
+    build:
+      context: ./
+      dockerfile: Dockerfile
+      args:
+        - GROUP_NAME=${GROUP_NAME}
+        - USER_NAME=${USER_NAME}
+        - WORK_DIR=${WORK_DIR}
+        - USER_ID=${USER_ID}
+        - GROUP_ID=${GROUP_ID}
+    user: ${USER_NAME}
+    volumes:
+      - type: bind
+        source: ./
+        target: ${WORK_DIR}
+      - /tmp/.X11-unix:/tmp/.X11-unix
+    restart: "no"
+    tty: true
+    working_dir: ${WORK_DIR}
+    environment:
+      - DISPLAY=${DISPLAY}
