@@ -10,7 +10,7 @@ class SQLite3Test < Minitest::Test
     def setup
         #データベースファイルの作成と接続
         @db=SQLite3::Database.new(DATABASE_PATH)
-        #データベースのスキーマをSQLから指定してテーブルを作成する。
+        #SQLから指定してテーブルを作成する。
         @db.execute(<<~SQL, :table_name => TABLE_NAME)
             create table :table_name
             (
