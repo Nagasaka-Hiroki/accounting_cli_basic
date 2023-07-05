@@ -38,3 +38,6 @@ ActiveRecordを単体での使い方は以下が参考になる。
 - [【SQLite3】コマンド例と他データベースとの比較から始める SQLite 入門 - Qiita](https://qiita.com/d-yokoi/items/be7cf4622c66cdcc04cb)
 - [Ruby+SQLite3 - Qiita](https://qiita.com/akito_tameto/items/868e3805dc01c7bef6ef)
 
+## SQLインジェクション対策
+　SQL文をコードに書くとき、変数に対してエスケープ処理が必要になる。そのためプレースホルダーを使った書き方が重要になる。しかし、エラーが出る。一度記録するがこの文章はうまく行ったときに注意点について記述する。
+
