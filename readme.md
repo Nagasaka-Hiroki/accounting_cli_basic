@@ -37,7 +37,15 @@ ActiveRecordを単体での使い方は以下が参考になる。
 - [SQLite3 チートシート - Qiita](https://qiita.com/sotetsuk/items/cd2aeae4ba7e72faad47)
 - [【SQLite3】コマンド例と他データベースとの比較から始める SQLite 入門 - Qiita](https://qiita.com/d-yokoi/items/be7cf4622c66cdcc04cb)
 - [Ruby+SQLite3 - Qiita](https://qiita.com/akito_tameto/items/868e3805dc01c7bef6ef)
+- [Ruby で SQLite ってみた - 想像力の欠如は深刻な欠点の一つである。](https://noqisofon.hatenablog.com/entry/20101219/1292687825)
+- [SQLite｜テーブルスキーマ(構造)の確認](https://www.javadrive.jp/sqlite/table/index2.html)
 
 ## SQLインジェクション対策
-　SQL文をコードに書くとき、変数に対してエスケープ処理が必要になる。そのためプレースホルダーを使った書き方が重要になる。しかし、エラーが出る。一度記録するがこの文章はうまく行ったときに注意点について記述する。
+　SQL文をコードに書くとき、変数に対してエスケープ処理が必要になる。そのためプレースホルダーを使った書き方が重要になる。<br/>
+今回はローカルで動作するので厳密には必要ないがせっかくなので取り組んで見る。
 
+試した結果何故かテーブル名に対してプレースホルダーが使えない。Railsの場合テーブルに相当するのはモデルクラスでプレースホルダはモデルに含まれるレコードを絞り込むのに使う。そのためプレースホルダで重要なのは条件のところという認識になる。また以下のサイトを確認した。
+
+- [プレースホルダとは？SQLインジェクション攻撃を回避せよ！](https://blog.senseshare.jp/placeholder.html)
+
+この例を見ると`execute_batch`を使わずに`execute`を使うのがよいかもしれない。ひとまずテーブル名の切り替えはプレースホルダではなく変数で切り替えるように意識して考える。
