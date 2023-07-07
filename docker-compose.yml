@@ -1,7 +1,7 @@
 version: "3.9"
 services:
   ruby:
-    container_name: accounting_basic
+    container_name: bookkeeping_basic
     image: ruby-bookworm:3.2.2
     build:
       context: ./
