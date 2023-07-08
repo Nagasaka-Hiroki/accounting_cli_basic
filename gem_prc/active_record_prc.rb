@@ -39,8 +39,9 @@ class ActiveRecordTest < Minitest::Test
     def test_new_model
         # binding.break
         #データベースに接続する。
-        ActiveRecord::Base.establish_connection(adapter: 'sqlite3', database: DATABASE_PATH)
+        db=ActiveRecord::Base.establish_connection(adapter: 'sqlite3', database: DATABASE_PATH)
         #テーブルを作成する。
+        
         ActiveRecord::Migration.create_table :test_models do |t|
             t.integer :rec_1
         end
